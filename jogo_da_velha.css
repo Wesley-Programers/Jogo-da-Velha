@@ -1,0 +1,36 @@
+body {
+    background: rgb(133, 133, 233);
+}
+
+
+
+#div-principal {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+}
+
+
+
+
+.div-princ-content {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all .1s ease;
+
+    /* font-size: 70px; */
+    /* display: none; */
+}
+
+#h1-rodada {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}

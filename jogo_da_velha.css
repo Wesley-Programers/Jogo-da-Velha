@@ -32,3 +32,15 @@ body {
     text-align: center;
     margin-bottom: 50px;
 }
+
+.div-princ-content .x{
+    pointer-events: none;
+}
+
+.div-princ-content .o{
+    pointer-events: none;
+}
+
+#span-rodada{
+    transition: all .3s ease;
+}

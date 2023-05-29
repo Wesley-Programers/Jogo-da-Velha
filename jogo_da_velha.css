@@ -44,3 +44,22 @@ body {
 #span-rodada{
     transition: all .3s ease;
 }
+
+#select-dificuldades {
+    margin-top: 26px;
+    transform: translateX(590px);
+    text-align: center;
+    /* transform: translateY(20px); */
+}
+
+
+
+@media only screen and (max-width: 700px) {
+
+    #select-dificuldades {
+        margin-left: 180px;
+        text-align: center;
+        transform: translateX(0px);
+    }
+
+}

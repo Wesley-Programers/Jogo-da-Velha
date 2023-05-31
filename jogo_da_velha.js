@@ -553,38 +553,54 @@ dificuldades.addEventListener('change', function() {
                 if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                     quad1Medio.innerHTML = 'X';
                     rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-                    var teste3 = sortearNumeros()
-                    console.log(teste3)
+                    var teste3 = sortearNumeros();
+                    console.log(teste3);
                     if(teste3 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
-                        quad2Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad2Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado2Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
-                        quad3Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad3Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado3Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
-                        quad4Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad4Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado4Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
-                        quad5Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad5Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado5Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
-                        quad6Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad6Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado6Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
-                        quad7Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad7Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado7Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
-                        quad8Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad8Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado8Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     }else if(teste3 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
-                        quad9Medio.innerHTML = 'O';
+                        setTimeout(function() {
+                            quad9Medio.innerHTML = 'O';
+                        }, 1000);
                         quadrado9Medio.classList.add('o');
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     };
@@ -595,6 +611,22 @@ dificuldades.addEventListener('change', function() {
         quad1Medio.style.fontSize = '70px';
 
         // --------------------------------------------------------------------------------------
+
+        function sortearNumeros2() {
+            var min = 1
+            var naoPode = 2
+            var max = 9
+          
+            var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+          
+            // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+            while (sorteado === naoPode) {
+              sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+          
+            return sorteado;
+          };
+          
 
         let quad2Medio = document.getElementById('content-2');
         var quadrado2Medio = document.getElementById('content-2');
@@ -608,8 +640,59 @@ dificuldades.addEventListener('change', function() {
               if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad2Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-              }
-            }
+                var teste4 = sortearNumeros2();
+                console.log(teste4);
+                if(teste4 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste4 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+              };
+            };
 
         });
         quad2Medio.style.fontSize = '70px';
@@ -618,8 +701,27 @@ dificuldades.addEventListener('change', function() {
 
     // --------------------------------------------------------------------------------------
 
+    function sortearNumeros3() {
+        var min = 1
+        var naoPode = 3
+        var max = 9
+      
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+      };
+
     let quad3Medio = document.getElementById('content-3');
     var quadrado3Medio = document.getElementById('content-3');
+
+    let quad2Medio_2 = document.getElementById('content-2');
+
+    let quad1Medio_2 = document.getElementById('content-1');
 
     quadrado3Medio.addEventListener('click', function() {
 
@@ -630,13 +732,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad3Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste5 = sortearNumeros3();
+                console.log(teste5);
+                if(teste5 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste5 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad3Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros4() {
+        var min = 1
+        var naoPode = 4
+        var max = 9
+      
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+      };
 
     let quad4Medio = document.getElementById('content-4');
     var quadrado4Medio = document.getElementById('content-4');
@@ -650,13 +818,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad4Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste6 = sortearNumeros4();
+                console.log(teste6);
+                if(teste6 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste6 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad4Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros5() {
+        var min = 1
+        var naoPode = 5
+        var max = 9
+
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+    };
 
     let quad5Medio = document.getElementById('content-5');
     var quadrado5Medio = document.getElementById('content-5');
@@ -670,13 +904,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad5Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste7 = sortearNumeros5();
+                console.log(teste7);
+                if(teste7 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste7 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad5Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros6() {
+        var min = 1
+        var naoPode = 6
+        var max = 9
+
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+    };
 
     let quad6Medio = document.getElementById('content-6');
     var quadrado6Medio = document.getElementById('content-6');
@@ -690,13 +990,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad6Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste8 = sortearNumeros6();
+                console.log(teste8);
+                if(teste8 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste8 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad6Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros7() {
+        var min = 1
+        var naoPode = 7
+        var max = 9
+
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+    };
 
     let quad7Medio = document.getElementById('content-7');
     var quadrado7Medio = document.getElementById('content-7');
@@ -710,13 +1076,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad7Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste9 = sortearNumeros7();
+                console.log(teste9);
+                if(teste9 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste9 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad7Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros8() {
+        var min = 1
+        var naoPode = 8
+        var max = 9
+
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        while (sorteado === naoPode) {
+          sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+      
+        return sorteado;
+    };
 
     let quad8Medio = document.getElementById('content-8');
     var quadrado8Medio = document.getElementById('content-8');
@@ -730,13 +1162,79 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad8Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste10 = sortearNumeros8();
+                console.log(teste10)
+                if(teste10 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste10 === 9 && quadrado9Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado9Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad9Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado9Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad8Medio.style.fontSize = '70px';
 
     // --------------------------------------------------------------------------------------
+
+    function sortearNumeros9() {
+        var min = 1
+        // var naoPode
+        var max = 8
+
+        var sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        // Verifica se o número sorteado é igual a 2 e sorteia novamente se for
+        // while (sorteado === naoPode) {
+        //   sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+        // };
+      
+        return sorteado;
+    };
 
     let quad9Medio = document.getElementById('content-9');
     var quadrado9Medio = document.getElementById('content-9');
@@ -750,8 +1248,59 @@ dificuldades.addEventListener('change', function() {
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad9Medio.innerHTML = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-            }
-        }
+                var teste11 = sortearNumeros9();
+                console.log(teste11);
+                if(teste11 === 1 && quadrado1Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado1Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad1Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado1Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 2 && quadrado2Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado2Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad2Medio_2.innerHTML = 'O';
+                    }, 1000);
+                    quadrado2Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 3 && quadrado3Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado3Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad3Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado3Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 4 && quadrado4Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado4Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad4Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado4Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 5 && quadrado5Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado5Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad5Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado5Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 6 && quadrado6Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado6Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad6Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado6Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 7 && quadrado7Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado7Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad7Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado7Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                }else if(teste11 === 8 && quadrado8Medio.classList.contains('x') == false && rodada.innerHTML === 'VEZ DE: JOGADOR 2' && quadrado8Medio.classList.contains('o') == false) {
+                    setTimeout(function() {
+                        quad8Medio.innerHTML = 'O';
+                    }, 1000);
+                    quadrado8Medio.classList.add('o');
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+            };
+        };
 
     });
     quad9Medio.style.fontSize = '70px';

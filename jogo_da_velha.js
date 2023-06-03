@@ -553,7 +553,34 @@ dificuldades.addEventListener('change', function() {
 
         };
 
-
+        function verificarVitoria(jogador) {
+            const combinacoesVitoria = [
+              [1, 2, 3], // Linha 1
+              [4, 5, 6], // Linha 2
+              [7, 8, 9], // Linha 3
+              [1, 4, 7], // Coluna 1
+              [2, 5, 8], // Coluna 2
+              [3, 6, 9], // Coluna 3
+              [1, 5, 9], // Diagonal principal
+              [3, 5, 7]  // Diagonal secundária
+            ];
+          
+            // Verificar todas as combinações de vitória
+            for (const combinacao of combinacoesVitoria) {
+              const [a, b, c] = combinacao;
+              const quadradoA = document.getElementById(`content-${a}`);
+              const quadradoB = document.getElementById(`content-${b}`);
+              const quadradoC = document.getElementById(`content-${c}`);
+          
+              if (quadradoA.innerHTML === jogador && quadradoB.innerHTML === jogador && quadradoC.innerHTML === jogador) {
+                return true;
+              };
+            };
+          
+            return false;
+          };
+          
+          
         let quad1Medio = document.getElementById('content-1');
         var quadrado1Medio = document.getElementById('content-1');
 
@@ -588,10 +615,18 @@ dificuldades.addEventListener('change', function() {
                         if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
 
                             alert('GG-1-2-3_1');
-                        }else {
+                        }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                            alert('GG-1-5-9_1');
+                        }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                            alert('GG-1-4-7_1');
+                        }
+                        else {
                             rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                         };
 
+                        if(verificarVitoria('O')) {
+                            alert('GG FOI FINALMENTE');
+                        };
                 }, 1000);
 
                 };
@@ -629,8 +664,15 @@ dificuldades.addEventListener('change', function() {
 
                     if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
                         alert('GG-1-2-3_1');
-                    }else {
+                    }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                        alert('GG-2-5-8_1');
+                    }
+                    else {
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                    };
+
+                    if(verificarVitoria('O')) {
+                        alert('GG FOI FINALMENTE');
                     };
 
                 }, 1000);
@@ -673,8 +715,17 @@ dificuldades.addEventListener('change', function() {
                     
                     if(quad1Medio_2.innerHTML === 'X' && quad2Medio_2.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
                         alert('GG-1-2-3_1');
-                    }else {
+                    }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                        alert('GG-3-5-7_1');
+                    }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                        alert('GG-3-6-9_1');
+                    }
+                    else {
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                    };
+
+                    if(verificarVitoria('O')) {
+                        alert('GG FOI FINALMENTE');
                     };
 
             }, 1000);
@@ -709,7 +760,19 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
+                    alert('GG-4-5-6_1');
+                }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    alert('GG-1-4-7_2');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+
             }, 1000);
             };
         };
@@ -742,7 +805,23 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
+                    alert('GG-4-5-6_2');
+                }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-1-5-9_2');
+                }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    alert('GG-3-5-7_2');
+                }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                    alert('GG-2-5-8_2');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+
             }, 1000);
             };
         };
@@ -776,7 +855,19 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
+                    alert('GG-4-5-6_3');
+                }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-3-6-9_2');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+
             }, 1000);
             };
         };
@@ -810,7 +901,21 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-7-8-9_1');
+                }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    alert('GG-3-5-7_2');
+                }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    alert('GG-1-4-7_3');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+
             }, 1000);
             };
         };
@@ -843,7 +948,19 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-7-8-9_2');
+                }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                    alert('GG-2-5-8_3');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+                
             }, 1000);
             };
         };
@@ -876,7 +993,21 @@ dificuldades.addEventListener('change', function() {
             setTimeout(function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-7-8-9_3');
+                }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-1-5-9_3');
+                }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    alert('GG-3-6-9_3');
+                }
+                else {
+                    rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                };
+
+                if(verificarVitoria('O')) {
+                    alert('GG FOI FINALMENTE');
+                };
+
             }, 1000);
             };
         };

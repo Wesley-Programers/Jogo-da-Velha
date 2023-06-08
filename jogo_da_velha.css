@@ -1,5 +1,12 @@
 body {
-    background: rgb(133, 133, 233);
+    /* background: rgb(133, 133, 233); */
+    /* pointer-events: none; */
+    user-select: none;
+
+    background: linear-gradient(to right, rgb(9, 108, 221), rgb(22, 196, 196));
+    animation: fundo 19s ease-in-out infinite;
+    background-size: 300% 300%;
+    margin-top: 5.5%;
 }
 
 
@@ -11,10 +18,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     margin: auto;
+    color: white;
 }
-
-
-
 
 .div-princ-content {
     border: 1px solid black;
@@ -23,26 +28,51 @@ body {
     align-items: center;
     cursor: pointer;
     transition: all .1s ease;
+    user-select: none;
 
     /* font-size: 70px; */
     /* display: none; */
 }
 
+#div-tela-win {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+
+    display: none;
+
+}
+
+
+
+
+
 #h1-rodada {
     text-align: center;
     margin-bottom: 50px;
+    color: rgb(230, 222, 222);
+    /* transition: all .3s ease; */
 }
 
 .div-princ-content .x{
     pointer-events: none;
+    /* transition-duration: 1s; */
 }
 
 .div-princ-content .o{
     pointer-events: none;
+    /* transition: all .3s ease; */
 }
 
 #span-rodada{
-    transition: all .3s ease;
+    
 }
 
 #select-dificuldades {
@@ -52,14 +82,61 @@ body {
     /* transform: translateY(20px); */
 }
 
+#span-bt-pos-win-reniciar {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    font-size: 3.5ch;
+    background: rgb(7, 95, 209);
+
+    margin-bottom: 69px;
+    margin-top: 27px;
+}
+#span-bt-pos-win-reniciar:hover {
+    background: rgb(9, 136, 209);
+}
+
+#span-msg-win {
+    font-size: 7ch;
+    color: white;
+}
+
+#footer-msg-obg {
+    /* margin-top: 429px; */
+    color: white;
+    font-size: 2ch;
+}
+
+
+
+@keyframes fundo {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
 
 
 @media only screen and (max-width: 700px) {
+
+    body {
+        margin-top: 6%;
+    }
 
     #select-dificuldades {
         margin-left: 180px;
         text-align: center;
         transform: translateX(0px);
     }
+
 
 }

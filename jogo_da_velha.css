@@ -34,6 +34,27 @@ body {
     /* display: none; */
 }
 
+.div-princ-content:nth-child(1),
+.div-princ-content:nth-child(2),
+.div-princ-content:nth-child(3) {
+    border-top: none;
+}
+.div-princ-content:nth-child(1),
+.div-princ-content:nth-child(4),
+.div-princ-content:nth-child(7) {
+    border-left: none;
+}
+.div-princ-content:nth-child(7),
+.div-princ-content:nth-child(8),
+.div-princ-content:nth-child(9) {
+    border-bottom: none;
+}
+.div-princ-content:nth-child(3),
+.div-princ-content:nth-child(6),
+.div-princ-content:nth-child(9) {
+    border-right: none;
+}
+
 #div-tela-win {
     display: flex;
     flex-direction: column;

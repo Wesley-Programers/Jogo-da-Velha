@@ -6,11 +6,18 @@ var dificuldadeMedio = document.getElementById('modo-medio');
 var dificuldadeDificil = document.getElementById('modo-dificil');
 var dificuldadeImpossivel = document.getElementById('modo-impossivel');
 
+var telaWin = document.getElementById('div-tela-win');
+var txtWin = document.getElementById('span-msg-win');
+var btRestartJg = document.getElementById('span-bt-pos-win-reniciar');
 
 
 
 
 dificuldades.addEventListener('change', function() {
+
+    btRestartJg.addEventListener('click', function() {
+        location.reload();
+    });
 
     var opcaoSelecionada = dificuldades.options[dificuldades.selectedIndex];
 
@@ -38,34 +45,54 @@ dificuldades.addEventListener('change', function() {
 
 
                 if(quadrado5.innerHTML === 'X' && quadrado1.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-1-5-9_3')
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                        }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'X' && quadrado2.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-1-2-3_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'X' && quadrado4.innerHTML === 'X' && quadrado7.innerHTML === 'X'){
-                    alert('GG-1-4-7_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad1.style.cursor = 'not-allowed';
                 console.log('marcado como X-1');
             } else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad1.innerHTML = 'O';
 
 
                 if(quadrado1.innerHTML === 'O' && quadrado4.innerHTML === 'O' && quadrado7.innerHTML === 'O'){
-                    alert('GG-1-4-7_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado5.innerHTML === 'O' && quadrado1.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-1-5-9_3')
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'O' && quadrado2.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-1-2-3_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad1.style.cursor = 'not-allowed';
                 console.log('marcado como O-1');
                 quadrado1.classList.add('o');
             };
@@ -98,28 +125,42 @@ dificuldades.addEventListener('change', function() {
 
 
                 if(quadrado1.innerHTML === 'X' && quadrado2.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-1-2-3_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado8.innerHTML === 'X') {
-                    alert('GG-2-5-8_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad2.style.cursor = 'not-allowed';
                 console.log('marcado como X-2');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad2.innerHTML = 'O';
 
 
                 if(quadrado1.innerHTML === 'O' && quadrado2.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-1-2-3_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado8.innerHTML === 'O') {
-                    alert('GG-2-5-8_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad2.style.cursor = 'not-allowed';
                 console.log('marcado como O-2');
                 quadrado2.classList.add('o');
             };
@@ -151,34 +192,54 @@ dificuldades.addEventListener('change', function() {
 
 
                 if(quadrado7.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-7-5-3_3');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'X' && quadrado2.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-1-2-3_3');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'X' && quadrado6.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-3-6-9_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad3.style.cursor = 'not-allowed';
                 console.log('marcado como X-3');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad3.innerHTML = 'O';
 
 
                 if(quadrado7.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-7-5-3_3');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'O' && quadrado2.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-1-2-3_3');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'O' && quadrado6.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-3-6-9_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad3.style.cursor = 'not-allowed';
                 console.log('marcado como O-3');
                 quadrado3.classList.add('o');
             };
@@ -210,28 +271,42 @@ dificuldades.addEventListener('change', function() {
 
 
                 if(quadrado4.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado6.innerHTML === 'X') {
-                    alert('GG-4-5-6_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'X' && quadrado4.innerHTML === 'X' && quadrado7.innerHTML === 'X'){
-                    alert('GG-1-4-7_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad4.style.cursor = 'not-allowed';
                 console.log('marcado como X-4');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad4.innerHTML = 'O';
 
 
                 if(quadrado4.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado6.innerHTML === 'O') {
-                    alert('GG-4-5-6_1');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'O' && quadrado4.innerHTML === 'O' && quadrado7.innerHTML === 'O'){
-                    alert('GG-1-4-7_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad4.style.cursor = 'not-allowed';
                 console.log('marcado como O-4');
                 quadrado4.classList.add('o');
             };
@@ -262,40 +337,66 @@ dificuldades.addEventListener('change', function() {
                 quad5.innerHTML = 'X';
 
                 if(quadrado5.innerHTML === 'X' && quadrado1.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-1-5-9_2')
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado7.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-7-5-3_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado4.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado6.innerHTML === 'X') {
-                    alert('GG-4-5-6_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado8.innerHTML === 'X') {
-                    alert('GG-2-5-8_2');
+                    setTimeout(function(){
+                            telaWin.style.display = 'flex';
+                    }, 1000)
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad5.style.cursor = 'not-allowed';
                 console.log('marcado como X-5');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad5.innerHTML = 'O';
 
 
                 if(quadrado5.innerHTML === 'O' && quadrado1.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-1-5-9_2')
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado7.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-7-5-3_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado4.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado6.innerHTML === 'O') {
-                    alert('GG-4-5-6_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado8.innerHTML === 'O') {
-                    alert('GG-2-5-8_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad5.style.cursor = 'not-allowed';
                 console.log('marcado como O-5');
                 quadrado5.classList.add('o');
             };
@@ -327,28 +428,42 @@ dificuldades.addEventListener('change', function() {
 
 
                 if(quadrado4.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado6.innerHTML === 'X') {
-                    alert('GG-4-5-6_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'X' && quadrado6.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-3-6-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad6.style.cursor = 'not-allowed';
                 console.log('marcado como X-6');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad6.innerHTML = 'O';
 
 
                 if(quadrado4.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado6.innerHTML === 'O') {
-                    alert('GG-4-5-6_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'O' && quadrado6.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-3-6-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad6.style.cursor = 'not-allowed';
                 console.log('marcado como O-6');
                 quadrado6.classList.add('o');
             };
@@ -377,37 +492,57 @@ dificuldades.addEventListener('change', function() {
             quadrado7.classList.add('x');
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad7.innerHTML = 'X';
-                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-
-
+                
+                
                 if(quadrado9.innerHTML === 'X' && quadrado8.innerHTML === 'X' && quadrado7.innerHTML === 'X') {
-                    alert('GG-7-8-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado7.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado3.innerHTML === 'X') {
-                    alert('GG-7-5-3_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'X' && quadrado4.innerHTML === 'X' && quadrado7.innerHTML === 'X'){
-                    alert('GG-1-4-7_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
-
-
-                console.log('marcado como X-7')
+                
+                
+                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad7.style.cursor = 'not-allowed';
+                console.log('marcado como X-7');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad7.innerHTML = 'O';
 
 
                 if(quadrado9.innerHTML === 'O' && quadrado8.innerHTML === 'O' && quadrado7.innerHTML === 'O') {
-                    alert('GG-7-8-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado7.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado3.innerHTML === 'O') {
-                    alert('GG-7-5-3_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado1.innerHTML === 'O' && quadrado4.innerHTML === 'O' && quadrado7.innerHTML === 'O'){
-                    alert('GG-1-4-7_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad7.style.cursor = 'not-allowed';
                 console.log('marcado como O-7');
                 quadrado7.classList.add('o');
             };
@@ -436,31 +571,45 @@ dificuldades.addEventListener('change', function() {
             quadrado8.classList.add('x');
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad8.innerHTML = 'X';
-                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-
-
+                
+                
                 if(quadrado7.innerHTML === 'X' && quadrado9.innerHTML === 'X' && quadrado8.innerHTML === 'X') {
-                    alert('GG-7-8-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'X' && quadrado5.innerHTML === 'X' && quadrado8.innerHTML === 'X') {
-                    alert('GG-2-5-8_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
-
-
+                
+                
+                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad8.style.cursor = 'not-allowed';
                 console.log('marcado como X-8');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad8.innerHTML = 'O';
 
 
                 if(quadrado7.innerHTML === 'O' && quadrado9.innerHTML === 'O' && quadrado8.innerHTML === 'O') {
-                    alert('GG-7-8-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado2.innerHTML === 'O' && quadrado5.innerHTML === 'O' && quadrado8.innerHTML === 'O') {
-                    alert('GG-2-5-8_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad8.style.cursor = 'not-allowed';
                 console.log('marcado como O-8');
                 quadrado8.classList.add('o');
             };
@@ -489,37 +638,57 @@ dificuldades.addEventListener('change', function() {
             quadrado9.classList.add('x');
             if(rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad9.innerHTML = 'X';
-                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
-
-
+                
+                
                 if(quadrado8.innerHTML === 'X' && quadrado7.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-7-8-9_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado5.innerHTML === 'X' && quadrado1.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-1-5-9_1')
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'X' && quadrado6.innerHTML === 'X' && quadrado9.innerHTML === 'X') {
-                    alert('GG-3-6-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 };
-
-
+                
+                
+                rodada.innerHTML = 'VEZ DE: JOGADOR 2';
+                quad9.style.cursor = 'not-allowed';
                 console.log('marcado como X-9');
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad9.innerHTML = 'O';
 
 
                 if(quadrado8.innerHTML === 'O' && quadrado7.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-7-8-9_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado5.innerHTML === 'O' && quadrado1.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-1-5-9_1')
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 if(quadrado3.innerHTML === 'O' && quadrado6.innerHTML === 'O' && quadrado9.innerHTML === 'O') {
-                    alert('GG-3-6-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
 
                 rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad9.style.cursor = 'not-allowed';
                 console.log('marcado como O-9');
                 quadrado9.classList.add('o');
             };
@@ -613,19 +782,30 @@ dificuldades.addEventListener('change', function() {
                         document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
 
                         if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
-
-                            alert('GG-1-2-3_1');
+                            setTimeout(function() {
+                                telaWin.style.display = 'flex';
+                            }, 500);
+                            txtWin.innerHTML = 'X VENCEU!';
                         }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                            alert('GG-1-5-9_1');
+                            setTimeout(function() {
+                                telaWin.style.display = 'flex';
+                            }, 500);
+                            txtWin.innerHTML = 'X VENCEU!';
                         }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                            alert('GG-1-4-7_1');
+                            setTimeout(function() {
+                                telaWin.style.display = 'flex';
+                            }, 500);
+                            txtWin.innerHTML = 'X VENCEU!';
                         }
                         else {
                             rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                         };
 
                         if(verificarVitoria('O')) {
-                            alert('GG FOI FINALMENTE');
+                            setTimeout(function() {
+                                telaWin.style.display = 'flex';
+                            }, 500);
+                            txtWin.innerHTML = 'O VENCEU!';
                         };
                 }, 1000);
 
@@ -663,16 +843,25 @@ dificuldades.addEventListener('change', function() {
                     document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
 
                     if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
-                        alert('GG-1-2-3_1');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'X VENCEU!';
                     }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
-                        alert('GG-2-5-8_1');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'X VENCEU!';
                     }
                     else {
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     };
 
                     if(verificarVitoria('O')) {
-                        alert('GG FOI FINALMENTE');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'O VENCEU!';
                     };
 
                 }, 1000);
@@ -714,18 +903,30 @@ dificuldades.addEventListener('change', function() {
                     document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                     
                     if(quad1Medio_2.innerHTML === 'X' && quad2Medio_2.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
-                        alert('GG-1-2-3_1');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'X VENCEU!';
                     }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                        alert('GG-3-5-7_1');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'X VENCEU!';
                     }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                        alert('GG-3-6-9_1');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'X VENCEU!';
                     }
                     else {
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     };
 
                     if(verificarVitoria('O')) {
-                        alert('GG FOI FINALMENTE');
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'O VENCEU!';
                     };
 
             }, 1000);
@@ -761,16 +962,25 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
-                    alert('GG-4-5-6_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                    alert('GG-1-4-7_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
             }, 1000);
@@ -806,20 +1016,35 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
-                    alert('GG-4-5-6_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-1-5-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                    alert('GG-3-5-7_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
-                    alert('GG-2-5-8_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
             }, 1000);
@@ -856,16 +1081,25 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
-                    alert('GG-4-5-6_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-3-6-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
             }, 1000);
@@ -902,18 +1136,30 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-7-8-9_1');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad3Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                    alert('GG-3-5-7_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
-                    alert('GG-1-4-7_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
             }, 1000);
@@ -949,16 +1195,25 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-7-8-9_2');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
-                    alert('GG-2-5-8_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
                 
             }, 1000);
@@ -968,7 +1223,7 @@ dificuldades.addEventListener('change', function() {
 
     quad8Medio.style.fontSize = '70px';
 
-    // --------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------- 
 
     let quad9Medio = document.getElementById('content-9');
     var quadrado9Medio = document.getElementById('content-9');
@@ -994,18 +1249,30 @@ dificuldades.addEventListener('change', function() {
                 document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
                 document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
                 if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-7-8-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-1-5-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }else if(quad3Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
-                    alert('GG-3-6-9_3');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'X VENCEU!';
                 }
                 else {
                     rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                 };
 
                 if(verificarVitoria('O')) {
-                    alert('GG FOI FINALMENTE');
+                    setTimeout(function() {
+                        telaWin.style.display = 'flex';
+                    }, 500);
+                    txtWin.innerHTML = 'O VENCEU!';
                 };
 
             }, 1000);
@@ -1014,5 +1281,14 @@ dificuldades.addEventListener('change', function() {
     });
 
     quad9Medio.style.fontSize = '70px';
+
+    if(opcaoSelecionada.id === 'modo-dificil') {
+        // alert('foi');
+    };
+
+    if(opcaoSelecionada.id === 'modo-impossivel') {
+        // alert('foi');
+    };
+
 
 });

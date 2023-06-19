@@ -1,4 +1,12 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
 body {
+    /* background: rgb(133, 133, 233); */
+    /* pointer-events: none; */
     user-select: none;
 
     background: linear-gradient(to right, rgb(9, 108, 221), rgb(22, 196, 196));
@@ -17,18 +25,17 @@ body {
     grid-template-rows: repeat(3, 1fr);
     margin: auto;
     color: white;
+    /* grid-template-rows: repeat(3, 1fr); */
 }
 
 .div-princ-content {
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     user-select: none;
-
-    /* font-size: 70px; */
-    /* display: none; */
+    font-size: 70px;
 }
 
 .div-princ-content:nth-child(1),
@@ -53,7 +60,6 @@ body {
 }
 
 #div-tela-win {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     background: rgba(0, 0, 0, 0.9);
@@ -63,11 +69,13 @@ body {
     bottom: 0;
     left: 0;
     align-items: center;
-
     display: none;
 }
 
-
+#div-select-dificuldades {
+    text-align: center;
+    margin-top: 40px;
+}
 
 
 
@@ -114,12 +122,52 @@ body {
 #span-msg-win {
     font-size: 7ch;
     color: white;
+    width: 10ch;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: comecandoTexto 1s steps(10);
 }
 
 #footer-msg-obg {
     /* margin-top: 429px; */
     color: white;
     font-size: 2ch;
+}
+
+#show-win-msg {
+    display: flex;
+}
+
+#btJogarModoFacil {
+    animation: btModoFacil 7s infinite;
+}
+#btJogarModoDificil {
+    display: block;
+    margin-left: 47.6%;
+    text-align: center;
+    animation: btModoDificil 7s infinite;
+}
+#btJogarModoContraSi {
+    display: block;
+    text-align: center;
+    margin-left: 45%;
+    animation: btModoSi 7s infinite;
+}
+button {
+    background: linear-gradient(to right, rgb(31, 33, 168), rgb(8, 52, 109));
+    border: 0px;
+    padding: 10px;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover {
+    background: rgb(9, 133, 116) !important;
+}
+button:disabled {
+    opacity: 0.5;
+    background: rgb(31, 33, 168) !important;
 }
 
 
@@ -138,6 +186,60 @@ body {
     }
 }
 
+@keyframes btModoSi {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes btModoFacil {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes btModoDificil {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes comecandoTexto {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes mostrandoTexto {
+    50% {
+        border-color: transparent;
+    }
+}
+
 
 @media only screen and (max-width: 700px) {
 
@@ -145,10 +247,12 @@ body {
         margin-top: 6%;
     }
 
-    #select-dificuldades {
-        margin-left: 180px;
-        text-align: center;
-        transform: translateX(0px);
+    #btJogarModoContraSi {
+        margin-left: 36.4%;
+    }
+
+    #btJogarModoDificil {
+        margin-left: 43.7%;
     }
 
 

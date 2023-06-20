@@ -5,8 +5,6 @@
 }
 
 body {
-    /* background: rgb(133, 133, 233); */
-    /* pointer-events: none; */
     user-select: none;
 
     background: linear-gradient(to right, rgb(9, 108, 221), rgb(22, 196, 196));
@@ -25,7 +23,6 @@ body {
     grid-template-rows: repeat(3, 1fr);
     margin: auto;
     color: white;
-    /* grid-template-rows: repeat(3, 1fr); */
 }
 
 .div-princ-content {
@@ -83,24 +80,20 @@ body {
     text-align: center;
     margin-bottom: 50px;
     color: rgb(230, 222, 222);
-    /* transition: all .3s ease; */
 }
 
 .div-princ-content .x{
     pointer-events: none;
-    /* transition-duration: 1s; */
 }
 
 .div-princ-content .o{
     pointer-events: none;
-    /* transition: all .3s ease; */
 }
 
 #select-dificuldades {
     margin-top: 26px;
     transform: translateX(590px);
     text-align: center;
-    /* transform: translateY(20px); */
 }
 
 #span-bt-pos-win-reniciar {
@@ -129,7 +122,6 @@ body {
 }
 
 #footer-msg-obg {
-    /* margin-top: 429px; */
     color: white;
     font-size: 2ch;
 }
@@ -168,6 +160,13 @@ button:hover {
 button:disabled {
     opacity: 0.5;
     background: rgb(31, 33, 168) !important;
+}
+
+#span-modo-selecionado {
+    float: left;
+    color: rgb(221, 212, 212);
+    margin-left: 1%;
+    font-size: 14px;
 }
 
 

@@ -16,8 +16,6 @@ var btModoDificil = document.getElementById('btJogarModoDificil');
 
 var modoSelecionadoTxt = document.getElementById('span-modo-selecionado');
 
-var empate = false;
-
 
 function checarEmpate(board) {
     for(let row = 0; row < 3; row++) {
@@ -31,7 +29,6 @@ function checarEmpate(board) {
     return true;
 };
 
-
 btModoContraSi.addEventListener('click', function() {
 
     modoSelecionadoTxt.innerHTML = 'MODO SELECIONADO: JOGAR CONTRA SI';
@@ -41,7 +38,6 @@ btModoContraSi.addEventListener('click', function() {
         ['', '', ''],
         ['', '', '']
     ];
-
 
     btModoContraSi.disabled = true;
     btModoFacil.disabled = true;
@@ -96,6 +92,8 @@ btModoContraSi.addEventListener('click', function() {
 
             }else if(rodada.innerHTML === 'VEZ DE: JOGADOR 2') {
                 quad1.innerHTML = 'O';
+                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
+                quad1.style.cursor = 'not-allowed';
     
                 boardSi[0][0] = 'O';
     
@@ -124,9 +122,6 @@ btModoContraSi.addEventListener('click', function() {
                     txtWin.innerHTML = 'EMPATE!'
                     txtWin.style.textAlign = 'center';
                 };
-
-                rodada.innerHTML = 'VEZ DE: JOGADOR 1';
-                quad1.style.cursor = 'not-allowed';
                 };
             };
         };
@@ -764,6 +759,12 @@ btModoFacil.addEventListener('click', function() {
 
     modoSelecionadoTxt.innerHTML = 'MODO SELECIONADO: FÁCIL';
 
+    var boardFacil = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ];
+
     btModoContraSi.disabled = true;
     btModoFacil.disabled = true;
     btModoDificil.disabled = true;
@@ -773,7 +774,7 @@ btModoFacil.addEventListener('click', function() {
     });
     
     var quadradosSelecionados = [];
-    
+
     function sortearNumeros() {
         var min = 1
         var max = 9
@@ -781,13 +782,19 @@ btModoFacil.addEventListener('click', function() {
         var numeroSorteado = Math.floor(Math.random() * (max - min + 1)) + min;
         
         if (quadradosSelecionados.includes(numeroSorteado)) {
+           if(quadradosSelecionados.length === max - min + 1) {
+            return null;
+           }else {
             return sortearNumeros();
+           };
         };
         
         quadradosSelecionados.push(numeroSorteado);
         
         return numeroSorteado;
     };
+
+
     
     function verificarVitoria(jogador) {
         const combinacoesVitoria = [
@@ -825,16 +832,20 @@ btModoFacil.addEventListener('click', function() {
     var quadradosIds = ['content-1', 'content-2', 'content-3', 'content-4', 'content-5', 'content-6', 'content-7', 'content-8', 'content-9'];
     
     function quadradoSelecionado(id) {
-        return document.getElementById(id).classList.contains('x') || document.getElementById(id).classList.contains('o');
+        if(document.getElementById(id) !== null) {
+            return document.getElementById(id).classList.contains('x') || document.getElementById(id).classList.contains('o');
+        };
     };
     
     quadrado1Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[0])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado1Medio.classList.add('x');
+            quad1Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad1Medio.innerHTML = 'X';
+                quad1Medio.style.cursor = 'not-allowed';
+                boardFacil[0][0] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
                 
                 var numeroSorteado;
@@ -844,8 +855,35 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
                 
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
     
                     if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
                         setTimeout(function() {
@@ -853,13 +891,13 @@ btModoFacil.addEventListener('click', function() {
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!';
 
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!';
 
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -874,6 +912,14 @@ btModoFacil.addEventListener('click', function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
+                    };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
                     };
             }, 1000);
             };
@@ -886,14 +932,15 @@ btModoFacil.addEventListener('click', function() {
     let quad2Medio = document.getElementById('content-2');
     var quadrado2Medio = document.getElementById('content-2');
     
-    // Dentro do evento de clique no quadrado
     quadrado2Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[1])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado2Medio.classList.add('x');
+            quad2Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad2Medio.innerHTML = 'X';
+                quad2Medio.style.cursor = 'not-allowed';
+                boardFacil[0][1] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
                 
                 var numeroSorteado;
@@ -903,15 +950,41 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
                 
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
         
                     if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!';
-                    }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                    }else if(quad2Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -926,6 +999,14 @@ btModoFacil.addEventListener('click', function() {
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
                     };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -935,18 +1016,16 @@ btModoFacil.addEventListener('click', function() {
     
     let quad3Medio = document.getElementById('content-3');
     var quadrado3Medio = document.getElementById('content-3');
-    
-    let quad2Medio_2 = document.getElementById('content-2');
-    let quad1Medio_2 = document.getElementById('content-1');
-    
 
     quadrado3Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[2])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado3Medio.classList.add('x');
+            quad3Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad3Medio.innerHTML = 'X';
+                quad3Medio.style.cursor = 'not-allowed';
+                boardFacil[0][2] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
                 
                 var numeroSorteado;
@@ -956,10 +1035,36 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
                 
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
                     
-                    if(quad1Medio_2.innerHTML === 'X' && quad2Medio_2.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
+                    if(quad1Medio.innerHTML === 'X' && quad2Medio.innerHTML === 'X' && quad3Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -983,6 +1088,14 @@ btModoFacil.addEventListener('click', function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
+                    };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
                     };
             }, 1000);
         };
@@ -996,11 +1109,13 @@ btModoFacil.addEventListener('click', function() {
     
     quadrado4Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[3])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado4Medio.classList.add('x');
+            quad4Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad4Medio.innerHTML = 'X';
+                quad4Medio.style.cursor = 'not-allowed';
+                boardFacil[1][0] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1010,14 +1125,41 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1032,6 +1174,14 @@ btModoFacil.addEventListener('click', function() {
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
                     };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1042,15 +1192,15 @@ btModoFacil.addEventListener('click', function() {
     let quad5Medio = document.getElementById('content-5');
     var quadrado5Medio = document.getElementById('content-5');
     
-    
-    // Dentro do evento de clique no quadrado
     quadrado5Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[4])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado5Medio.classList.add('x');
+            quad5Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad5Medio.innerHTML = 'X';
+                quad5Medio.style.cursor = 'not-allowed';
+                boardFacil[1][1] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1060,14 +1210,41 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1077,7 +1254,7 @@ btModoFacil.addEventListener('click', function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                    }else if(quad2Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1093,6 +1270,14 @@ btModoFacil.addEventListener('click', function() {
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
                     };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1104,15 +1289,15 @@ btModoFacil.addEventListener('click', function() {
     let quad6Medio = document.getElementById('content-6');
     var quadrado6Medio = document.getElementById('content-6');
     
-    
-    // Dentro do evento de clique no quadrado
     quadrado6Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[5])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado6Medio.classList.add('x');
+            quad6Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad6Medio.innerHTML = 'X';
+                quad6Medio.style.cursor = 'not-allowed';
+                boardFacil[1][2] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1122,8 +1307,35 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad4Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad6Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
@@ -1144,7 +1356,15 @@ btModoFacil.addEventListener('click', function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
-                    };       
+                    };
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1155,16 +1375,15 @@ btModoFacil.addEventListener('click', function() {
     let quad7Medio = document.getElementById('content-7');
     var quadrado7Medio = document.getElementById('content-7');
     
-    
-    
-    // Dentro do evento de clique no quadrado
     quadrado7Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[6])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado7Medio.classList.add('x');
+            quad7Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad7Medio.innerHTML = 'X';
+                quad7Medio.style.cursor = 'not-allowed';
+                boardFacil[2][0] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1174,8 +1393,35 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
@@ -1186,7 +1432,7 @@ btModoFacil.addEventListener('click', function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad4Medio.innerHTML === 'X' && quad7Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1203,6 +1449,13 @@ btModoFacil.addEventListener('click', function() {
                         txtWin.innerHTML = 'O VENCEU!';
                     };
             
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1215,11 +1468,13 @@ btModoFacil.addEventListener('click', function() {
     
     quadrado8Medio.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[7])) {
-            console.log('Quadrado já ocupado');
+            console.log('quadrado já ocupado');
         } else {
-            quadrado8Medio.classList.add('x');
+            quad8Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad8Medio.innerHTML = 'X';
+                quad8Medio.style.cursor = 'not-allowed';
+                boardFacil[2][1] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1229,14 +1484,41 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+    
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad2Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
+                    }else if(quad2Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1253,6 +1535,13 @@ btModoFacil.addEventListener('click', function() {
                         txtWin.innerHTML = 'O VENCEU!';
                     };
                     
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1267,9 +1556,11 @@ btModoFacil.addEventListener('click', function() {
         if (quadradoSelecionado(quadradosIds[8])) {
             console.log('quadrado já ocupado');
         } else {
-            quadrado9Medio.classList.add('x');
+            quad9Medio.classList.add('x');
             if (rodada.innerHTML === 'VEZ DE: JOGADOR 1') {
                 quad9Medio.innerHTML = 'X';
+                quad9Medio.style.cursor = 'not-allowed';
+                boardFacil[2][2] = 'X';
                 rodada.innerHTML = 'VEZ DE: JOGADOR 2';
             
                 var numeroSorteado;
@@ -1279,14 +1570,41 @@ btModoFacil.addEventListener('click', function() {
                 } while (quadradoSelecionado(quadradosIds[numeroSorteado - 1]));
             
                 setTimeout(function() {
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
-                    document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+                    if(document.getElementById(quadradosIds[numeroSorteado - 1]) !== null) {
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).innerHTML = 'O';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).style.cursor = 'not-allowed';
+                        document.getElementById(quadradosIds[numeroSorteado - 1]).classList.add('o');
+
+                        var idString = document.getElementById(quadradosIds[numeroSorteado - 1]);
+                        const id = idString.getAttribute('id');
+
+                        if(id == 'content-1') {
+                            boardFacil[0][0] = 'O';
+                        }else if(id == 'content-2') {
+                            boardFacil[0][1] = 'O';
+                        }else if(id == 'content-3') {
+                            boardFacil[0][2] = 'O';
+                        }else if(id == 'content-4') {
+                            boardFacil[1][0] = 'O';
+                        }else if(id == 'content-5') {
+                            boardFacil[1][1] = 'O';
+                        }else if(id == 'content-6') {
+                            boardFacil[1][2] = 'O';
+                        }else if(id == 'content-7') {
+                            boardFacil[2][0] = 'O';
+                        }else if(id == 'content-8') {
+                            boardFacil[2][1] = 'O';
+                        }else if(id == 'content-9') {
+                            boardFacil[2][2] = 'O';
+                        };
+                    };
+
                     if(quad7Medio.innerHTML === 'X' && quad8Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'X VENCEU!'
-                    }else if(quad1Medio_2.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
+                    }else if(quad1Medio.innerHTML === 'X' && quad5Medio.innerHTML === 'X' && quad9Medio.innerHTML === 'X') {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
@@ -1300,14 +1618,21 @@ btModoFacil.addEventListener('click', function() {
                     else {
                         rodada.innerHTML = 'VEZ DE: JOGADOR 1';
                     };
-            
+
                     if(verificarVitoria('O')) {
                         setTimeout(function() {
                             telaWin.style.display = 'flex';
                         }, 500);
                         txtWin.innerHTML = 'O VENCEU!';
                     };
-            
+
+                    if(checarEmpate(boardFacil)) {
+                        setTimeout(function() {
+                            telaWin.style.display = 'flex';
+                        }, 500);
+                        txtWin.innerHTML = 'EMPATE!';
+                        txtWin.style.textAlign = 'center';
+                    };
                 }, 1000);
             };
         };
@@ -1355,6 +1680,10 @@ btModoDificil.addEventListener('click', function() {
         };
 
         if(board[0][1] === player && board[1][1] === player && board[2][1] === player) {
+            return true;
+        };
+
+        if(board[0][2] === player && board[1][1] === player && board[2][0] === player) {
             return true;
         };
 

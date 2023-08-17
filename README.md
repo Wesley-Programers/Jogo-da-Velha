@@ -7,4 +7,4 @@ Este é um simples jogo da velha desenvolvido por um front-end junior usando HTM
 - <code>JavaScript</code>
 
 # Status
-Começado dia 26/05/23 -  Terminado dia 23/06/23
+Terminado ( com alguns bugs )
